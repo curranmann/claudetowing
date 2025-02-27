@@ -3,313 +3,805 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24/7 Emergency Towing Service | Fast Response in Your Area</title>
+    <title>RLC Agency - Towing Pay Per Call Marketing Experts</title>
     <style>
-        /* Reset and Base Styles */
+        /* Root Variables */
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --white: #ffffff;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
         }
-        
-        /* Hero Section */
-        .hero {
-            background-color: #ff3a1e;
-            color: white;
-            padding: 20px;
-            text-align: center;
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: #003d7a;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #003d7a;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0a800;
+            color: var(--text-color);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             position: relative;
+            padding-bottom: 15px;
         }
-        
-        .hero h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            font-weight: 700;
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            width: 60px;
+            background-color: var(--primary-color);
         }
-        
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 5px;
+
+        .text-center {
+            text-align: center;
         }
-        
-        /* Call Button Styles */
-        .call-btn {
-            position: fixed;
-            bottom: 20px;
+
+        .section-title.text-center::after {
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            max-width: 350px;
-            background-color: #ff3a1e;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 15px 20px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            margin-bottom: 40px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-            z-index: 100;
-            animation: pulse 2s infinite;
+            padding: 20px 0;
         }
-        
-        .call-btn svg {
-            margin-right: 10px;
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
         }
-        
-        @keyframes pulse {
-            0% {
-                transform: translateX(-50%) scale(1);
-            }
-            50% {
-                transform: translateX(-50%) scale(1.05);
-            }
-            100% {
-                transform: translateX(-50%) scale(1);
-            }
+
+        .logo span {
+            color: var(--accent-color);
         }
-        
-        /* Service Info Section */
-        .service-info {
-            padding: 25px 20px;
-            background-color: white;
-        }
-        
-        .service-info h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .features {
+
+        .nav-links {
+            list-style: none;
             display: flex;
-            flex-wrap: wrap;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            padding: 150px 0;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--secondary-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .about-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
-        
-        .feature {
-            flex: 0 0 50%;
+
+        .about-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .service-card:hover .service-card-icon {
+            color: var(--accent-color);
+        }
+
+        .service-card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .service-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Process Section */
+        #process {
+            background-color: var(--secondary-color);
+        }
+
+        .process-steps {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            flex: 0 0 calc(25% - 30px);
+            text-align: center;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -15%;
+            width: 70%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
             align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-step-title {
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            font-size: 16px;
         }
-        
-        .feature svg {
-            fill: #ff3a1e;
-            margin-right: 8px;
-            flex-shrink: 0;
+
+        /* Testimonials Section */
+        .testimonials-container {
+            margin-top: 50px;
         }
-        
-        /* Urgency Banner */
-        .urgency {
-            background-color: #ffd633;
-            padding: 15px;
-            margin: 0 -20px 20px -20px;
-            text-align: center;
-            font-weight: bold;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 25px 20px;
-            background-color: #f1f1f1;
-        }
-        
-        .testimonials h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
+
         .testimonial {
-            background-color: white;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
         }
-        
-        .testimonial p {
+
+        .testimonial-text {
             font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        .testimonial .name {
-            font-weight: bold;
-            display: block;
-        }
-        
-        .stars {
-            color: #ffc107;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        
-        /* Map Placeholder */
-        .map-container {
-            height: 200px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 80px; /* Space for fixed CTA button */
-        }
-        
-        /* Service Areas */
-        .service-areas {
-            padding: 25px 20px;
-            background-color: white;
-        }
-        
-        .service-areas h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        
-        .areas-list {
-            display: flex;
-            flex-wrap: wrap;
             margin-bottom: 20px;
         }
-        
-        .area-item {
-            flex: 0 0 50%;
-            margin-bottom: 10px;
+
+        .testimonial-author {
+            font-weight: 600;
         }
-        
+
+        .testimonial-company {
+            color: var(--light-text);
+        }
+
+        /* Call to Action Section */
+        #cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1200/600') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
         /* Footer */
         footer {
             background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            margin-bottom: 80px; /* Space for fixed CTA button */
+            color: var(--white);
+            padding: 60px 0 30px;
         }
-        
-        footer p {
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 40px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
             margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .process-step {
+                flex: 0 0 calc(50% - 15px);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .process-step {
+                flex: 0 0 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>24/7 Emergency Towing Service</h1>
-        <p>Fast Response • On-Scene in 30 Min or Less</p>
-        <p>Licensed & Insured • Serving Your Area</p>
-    </div>
-    
-    <!-- Call to Action Button (Fixed) -->
-    <a href="tel:555-123-4567" class="call-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
-        CALL NOW (555) 123-4567
-    </a>
-    
-    <!-- Urgency Banner -->
-    <div class="urgency">
-        Currently responding in your area - 3 trucks available
-    </div>
-    
-    <!-- Service Information -->
-    <div class="service-info">
-        <h2>Why Choose Our Towing Service?</h2>
-        <div class="features">
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                24/7 Emergency Service
-            </div>
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                30 Min Response Time
-            </div>
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                Licensed & Insured
-            </div>
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                Affordable Rates
-            </div>
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                GPS Dispatched
-            </div>
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                Damage-Free Towing
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">RLC <span>Agency</span></a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Premier Towing Pay Per Call Marketing Agency</h1>
+                <p class="hero-subtitle">Generate high-quality, exclusive calls for your towing business with our proven pay per call marketing strategies.</p>
+                <a href="#contact" class="btn">Get Started Today</a>
             </div>
         </div>
-        
-        <p>We handle all vehicle types including cars, trucks, SUVs, and motorcycles. Our professional drivers are standing by to help you right now.</p>
-    </div>
-    
-    <!-- Testimonials -->
-    <div class="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>"They arrived in just 20 minutes after my car broke down on the highway. Professional, fast, and reasonably priced. Highly recommend!"</p>
-            <span class="name">- Michael R.</span>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Why Choose RLC Agency</h2>
+            <p class="section-subtitle text-center">We're not just another marketing agency. We specialize exclusively in towing pay per call services.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-card-icon">★</div>
+                    <h3 class="about-card-title">Specialized Expertise</h3>
+                    <p>With years of experience in the towing industry, we understand the unique challenges and opportunities of your business.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-icon">✓</div>
+                    <h3 class="about-card-title">Quality Guaranteed</h3>
+                    <p>We only deliver high-quality, exclusive calls from customers who need your towing services right now.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-icon">↗</div>
+                    <h3 class="about-card-title">Growth Focused</h3>
+                    <p>Our strategies are designed to help you scale your towing business efficiently with a predictable flow of qualified leads.</p>
+                </div>
+            </div>
         </div>
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>"Called late at night when my car wouldn't start. Driver was friendly and helped jump my battery before towing. Great service!"</p>
-            <span class="name">- Sarah T.</span>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Our Towing Pay Per Call Services</h2>
+            <p class="section-subtitle text-center">We provide comprehensive marketing solutions tailored specifically for towing companies.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-icon">📱</div>
+                    <h3 class="service-card-title">Pay Per Call Campaigns</h3>
+                    <p>Our core service delivers qualified calls from people needing immediate towing services in your area. You only pay for valid calls.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">🎯</div>
+                    <h3 class="service-card-title">Geo-Targeted Marketing</h3>
+                    <p>We target potential customers in your specific service area, ensuring you receive calls only from people you can serve.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">📊</div>
+                    <h3 class="service-card-title">Performance Analytics</h3>
+                    <p>Track your campaign performance with our detailed reporting dashboard, showing call volume, quality, and ROI metrics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">🔍</div>
+                    <h3 class="service-card-title">Local SEO</h3>
+                    <p>Enhance your online presence to capture organic towing service searches in your local market.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">💼</div>
+                    <h3 class="service-card-title">Call Screening</h3>
+                    <p>We pre-qualify calls to ensure you're only paying for legitimate service requests, not spam or solicitations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">🔄</div>
+                    <h3 class="service-card-title">Conversion Optimization</h3>
+                    <p>We continuously refine our campaigns to maximize your call-to-customer conversion rates.</p>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <!-- Map Placeholder -->
-    <div class="map-container">
-        <img src="/api/placeholder/400/200" alt="Service Area Map">
-    </div>
-    
-    <!-- Service Areas -->
-    <div class="service-areas">
-        <h2>Areas We Serve</h2>
-        <div class="areas-list">
-            <div class="area-item">Downtown</div>
-            <div class="area-item">North Side</div>
-            <div class="area-item">South Side</div>
-            <div class="area-item">East End</div>
-            <div class="area-item">West Hills</div>
-            <div class="area-item">Metro Area</div>
-            <div class="area-item">Suburbs</div>
-            <div class="area-item">Highway Coverage</div>
+    </section>
+
+    <section id="process" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Our Process</h2>
+            <p class="section-subtitle text-center">Simple, transparent, and effective: how we generate quality towing service calls for your business.</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <h3 class="process-step-title">Consultation</h3>
+                    <p>We learn about your towing business, service area, and specific needs to create a customized campaign.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <h3 class="process-step-title">Campaign Setup</h3>
+                    <p>We build targeted marketing campaigns designed to generate quality calls from your service area.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <h3 class="process-step-title">Lead Generation</h3>
+                    <p>Our systems start generating calls from people needing immediate towing services.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <h3 class="process-step-title">Optimization</h3>
+                    <p>We continuously monitor and refine campaigns to improve call quality and volume.</p>
+                </div>
+            </div>
         </div>
-        <p>*Serving all locations within 25 miles radius</p>
-    </div>
-    
-    <!-- Footer -->
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Clients Say</h2>
+            <p class="section-subtitle text-center">Don't just take our word for it. Here's what towing companies working with us have to say.</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Since partnering with RLC Agency, our towing service calls have increased by 45%. They deliver consistent quality leads that convert into paying customers."</p>
+                    <div class="testimonial-author">Michael Thompson</div>
+                    <div class="testimonial-company">Thompson Towing Services</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"What sets RLC Agency apart is their deep understanding of the towing industry. They know exactly how to target people who need emergency towing services, which has drastically improved our business."</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-company">Quick Response Towing</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The quality of calls we receive through RLC Agency is outstanding. Nearly 80% convert into service calls, making their pay per call model incredibly cost-effective for our towing company."</p>
+                    <div class="testimonial-author">David Martinez</div>
+                    <div class="testimonial-company">Reliable Roadside Assistance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Ready to Grow Your Towing Business?</h2>
+            <p class="section-subtitle text-center">Start receiving high-quality, exclusive towing service calls today.</p>
+            <div class="text-center">
+                <a href="#contact" class="btn btn-secondary">Schedule a Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Contact Us</h2>
+            <p class="section-subtitle text-center">Have questions or ready to get started? Reach out to our towing pay per call specialists.</p>
+            
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-info">
+                        <div class="contact-method">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>(888) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@rlcagency.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🏢</div>
+                            <div>
+                                <h3>Office</h3>
+                                <p>123 Marketing Street<br>Suite 456<br>Los Angeles, CA 90001</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Business Type</option>
+                                <option value="towing">Towing Company</option>
+                                <option value="roadside">Roadside Assistance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2025 Emergency Towing Services</p>
-        <p>Licensed, Bonded & Insured</p>
-        <p>Available 24/7, 365 Days a Year</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>RLC Agency</h3>
+                    <p>The leading towing pay per call marketing agency, dedicated to helping towing companies grow their business with high-quality, exclusive leads.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Pay Per Call</a></li>
+                        <li><a href="#">Local SEO</a></li>
+                        <li><a href="#">Geo-Targeting</a></li>
+                        <li><a href="#">Call Tracking</a></li>
+                        <li><a href="#">ROI Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get In Touch</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:8881234567">(888) 123-4567</a></li>
+                        <li><a href="mailto:info@rlcagency.com">info@rlcagency.com</a></li>
+                        <li>Mon-Fri: 9:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RLC Agency. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Form Submission (Prevent Default for Demo)
+        const contactForm = document.querySelector('.contact-form form');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! In a real implementation, this would be sent to our server.');
+                this.reset();
+            });
+        }
+    </script>
 </body>
 </html>
